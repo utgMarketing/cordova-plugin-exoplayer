@@ -17,12 +17,16 @@
         android:orientation="horizontal">
 
         <ImageButton android:id="@id/exo_rew"
+            android:background="@layout/exo_rounded_corners"
             style="@style/Exo.Rewind"/>
         <ImageButton android:id="@id/exo_play"
+            android:background="@layout/exo_rounded_corners"
             style="@style/Exo.Play"/>
         <ImageButton android:id="@id/exo_pause"
+            android:background="@layout/exo_rounded_corners"
             style="@style/Exo.Pause"/>
         <ImageButton android:id="@id/exo_ffwd"
+            android:background="@layout/exo_rounded_corners"
             style="@style/Exo.FastForward"/>
     </LinearLayout>
 
@@ -31,26 +35,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@layout/exo_not_rounded_corners"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@layout/exo_rounded_corners"
-        android:layout_marginLeft="48dp"
-        android:layout_marginBottom="48dp"
-        android:layout_marginRight="48dp"
-        android:paddingTop="@dimen/padding"
-        android:paddingBottom="@dimen/padding"
         android:paddingLeft="@dimen/padding"
-        android:paddingRight="@dimen/padding">
+        android:paddingTop="@dimen/padding"
+        android:paddingRight="@dimen/padding"
+        android:paddingBottom="@dimen/padding">
 
         <!-- Left -->
-        <ImageView android:id="@id/exo_image"
+        <ImageView
+            android:id="@id/exo_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:maxHeight="86dp"
-            android:maxWidth="144dp"
             android:adjustViewBounds="true"
-            android:scaleType="centerInside"/>
+            android:gravity="center_vertical"
+            android:maxWidth="144dp"
+            android:maxHeight="86dp"
+            android:scaleType="centerInside" />
         <!-- Right -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,60 +66,65 @@
             android:paddingLeft="@dimen/padding">
 
             <!-- First line -->
-            <TextView android:id="@id/exo_title"
+            <TextView
+                android:id="@id/exo_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:textSize="28dp"
-                android:textStyle="bold"
                 android:includeFontPadding="false"
-                android:textColor="@color/foreground_color"/>
+                android:textColor="@color/foreground_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <!-- Second line -->
-            <TextView android:id="@id/exo_subtitle"
+            <TextView
+                android:id="@id/exo_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:includeFontPadding="false"
-                android:textColor="@color/foreground_color"/>
+                android:textColor="@color/foreground_color"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <!-- Third line -->
-            <LinearLayout android:id="@id/exo_timebar"
+            <LinearLayout
+                android:id="@id/exo_timebar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="8dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="8dp">
 
-                <TextView android:id="@id/exo_position"
+                <TextView
+                    android:id="@id/exo_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:paddingRight="8dp"
                     android:includeFontPadding="false"
-                    android:textColor="@color/foreground_color"/>
+                    android:paddingRight="8dp"
+                    android:textColor="@color/foreground_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <com.google.android.exoplayer2.ui.DefaultTimeBar
                     android:id="@id/exo_progress"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="26dp"
-                    app:played_color="@color/foreground_color"
-                    app:buffered_color="#FFBEBEBE"/>
+                    android:layout_weight="1"
+                    app:buffered_color="#FFBEBEBE"
+                    app:played_color="@color/foreground_color" />
 
-                <TextView android:id="@id/exo_duration"
+                <TextView
+                    android:id="@id/exo_duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:paddingLeft="8dp"
                     android:includeFontPadding="false"
-                    android:textColor="@color/foreground_color"/>
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/foreground_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
