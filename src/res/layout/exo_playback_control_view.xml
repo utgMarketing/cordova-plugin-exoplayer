@@ -114,7 +114,7 @@
                     android:layout_height="26dp"
                     android:layout_weight="1"
                     app:buffered_color="#FFBEBEBE"
-                    app:played_color="#0085FFFF" />
+                    app:played_color="#FF0085FF" />
 
                 <TextView
                     android:id="@id/exo_duration"
