@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -8,6 +9,16 @@
     android:orientation="vertical">
 
     <!-- Control button bar -->
+    <ImageButton
+        android:id="@+id/exo_close"
+        style="@style/Exo.Close"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:layout_margin="10dp"
+        android:background="@layout/exo_rounded_corners"
+        android:padding="10dp" />
+
     <LinearLayout
         android:id="@id/exo_buttons"
         android:layout_width="wrap_content"
@@ -16,18 +27,25 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageButton android:id="@id/exo_rew"
-            android:background="@layout/exo_rounded_corners"
-            style="@style/Exo.Rewind"/>
-        <ImageButton android:id="@id/exo_play"
-            android:background="@layout/exo_rounded_corners"
-            style="@style/Exo.Play"/>
-        <ImageButton android:id="@id/exo_pause"
-            android:background="@layout/exo_rounded_corners"
-            style="@style/Exo.Pause"/>
-        <ImageButton android:id="@id/exo_ffwd"
-            android:background="@layout/exo_rounded_corners"
-            style="@style/Exo.FastForward"/>
+        <ImageButton
+            android:id="@id/exo_rew"
+            style="@style/Exo.Rewind"
+            android:background="@layout/exo_rounded_corners" />
+
+        <ImageButton
+            android:id="@id/exo_play"
+            style="@style/Exo.Play"
+            android:background="@layout/exo_rounded_corners" />
+
+        <ImageButton
+            android:id="@id/exo_pause"
+            style="@style/Exo.Pause"
+            android:background="@layout/exo_rounded_corners" />
+
+        <ImageButton
+            android:id="@id/exo_ffwd"
+            style="@style/Exo.FastForward"
+            android:background="@layout/exo_rounded_corners" />
     </LinearLayout>
 
     <!-- Buttom info bar -->
@@ -127,5 +145,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </FrameLayout>

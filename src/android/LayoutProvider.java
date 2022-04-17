@@ -23,6 +23,7 @@
  */
 package co.frontyard.cordova.plugin.exoplayer;
 
+import org.apache.cordova.*;
 import android.app.*;
 import android.graphics.*;
 import android.text.*;
@@ -32,11 +33,13 @@ import android.widget.*;
 import com.google.android.exoplayer2.ui.*;
 import java.lang.*;
 import java.lang.String;
+import java.util.*;
 import org.json.*;
 import com.squareup.picasso.*;
 
 public class LayoutProvider {
-    private enum BUTTON { exo_prev, exo_rew, exo_play, exo_pause, exo_ffwd, exo_next }
+    private enum BUTTON { exo_prev, exo_rew, exo_play, exo_pause, exo_ffwd, exo_next, exo_close }
+    private static CallbackContext callbackContext;
 
     public static FrameLayout getMainLayout(Activity activity) {
         FrameLayout view = new FrameLayout(activity);
@@ -62,6 +65,10 @@ public class LayoutProvider {
         return view;
     }
 
+    public static void setCallbackContext(CallbackContext callbackContext_){
+        callbackContext = callbackContext_;
+    }
+
     public static void setupController(SimpleExoPlayerView parentView, Activity activity, JSONObject controller) {
         if (null != controller) {
             parentView.setUseController(true);
@@ -75,6 +82,26 @@ public class LayoutProvider {
     }
 
     private static void setupButtons(SimpleExoPlayerView parentView, Activity activity, JSONObject controller) {
+
+     // initiate and perform click event on button's
+     ImageButton closeButton = (ImageButton) findView(parentView, activity, "exo_close");
+
+           closeButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+
+                  Map<String, String> map = new HashMap<String, String>();
+                  map.put("eventType", "CLOSE_EVENT");
+                  JSONObject data = new JSONObject(map);
+
+
+                  PluginResult result = new PluginResult(PluginResult.Status.OK, data);
+                  result.setKeepCallback(true);
+                  //callbackContext.sendPluginResult(result);
+                  LayoutProvider.callbackContext.sendPluginResult(result);
+               }
+           });
+
         String packageName = activity.getPackageName();
         String buttonsColor = controller.optString("buttonsColor");
 

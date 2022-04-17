@@ -107,7 +107,7 @@ public class Player {
         public void onRepeatModeChanged(int newRepeatMode) {
             // Need to see if we want to send this to Cordova.
         }
-    
+
         @Override
         public void onSeekProcessed() {
         }
@@ -236,6 +236,7 @@ public class Player {
         dialog.getWindow().setAttributes(LayoutProvider.getDialogLayoutParams(activity, config, dialog));
         exoView.requestFocus();
         exoView.setOnTouchListener(onTouchListener);
+        LayoutProvider.setCallbackContext(this.callbackContext);
         LayoutProvider.setupController(exoView, activity, config.getController());
     }
 
@@ -425,6 +426,7 @@ public class Player {
 
     public void setController(JSONObject controller) {
         if (null != exoView) {
+            LayoutProvider.setCallbackContext(this.callbackContext);
             LayoutProvider.setupController(exoView, activity, controller);
         }
     }
@@ -433,5 +435,5 @@ public class Player {
         Log.e(TAG, msg);
         JSONObject payload = Payload.playerErrorEvent(Player.this.exoPlayer, null, msg);
         new CallbackResponse(Player.this.callbackContext).send(PluginResult.Status.ERROR, payload, true);
-    }   
+    }
 }
