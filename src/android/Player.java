@@ -110,6 +110,10 @@ public class Player {
         }
 
         @Override
+        public void onSeekProcessed() {
+        }
+
+        @Override
         public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
         }
 
@@ -241,6 +245,7 @@ public class Player {
         dialog.getWindow().setAttributes(LayoutProvider.getDialogLayoutParams(activity, config, dialog));
         exoView.requestFocus();
         exoView.setOnTouchListener(onTouchListener);
+        LayoutProvider.setCallbackContext(this.callbackContext);
         LayoutProvider.setupController(exoView, activity, config.getController());
     }
 

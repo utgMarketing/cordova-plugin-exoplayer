@@ -136,7 +136,7 @@ public class Payload {
             Timeline.Window window = new Timeline.Window();
             timeline.getWindow(firstWindow, window);
             map.put("positionInFirstPeriod", Long.toString(window.getPositionInFirstPeriodMs()));
-        }        
+        }
         addPlayerState(map, player);
         return new JSONObject(map);
     }
